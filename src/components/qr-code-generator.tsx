@@ -13,7 +13,8 @@ import { useToast } from "@/hooks/use-toast";
 import { getSuggestion } from '@/app/actions';
 
 const filter = (node: HTMLElement) => {
-    return (node.tagName !== 'LINK') || !node.hasAttribute('href') || !node.getAttribute('href')!.startsWith('https://fonts.googleapis.com');
+    const exclusionClasses = ['firebase-emulator-warning'];
+    return !exclusionClasses.some((classname) => node.classList?.contains(classname));
 }
 
 export function QRCodeGenerator() {
