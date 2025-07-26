@@ -3,7 +3,7 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
-  title: 'QRCode Swift',
+  title: 'QR Code Generator',
   description: 'Generate, customize, and share QR codes in seconds.',
 };
 
