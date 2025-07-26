@@ -14,6 +14,14 @@ import { useToast } from "@/hooks/use-toast";
 import { getSuggestion } from '@/app/actions';
 
 const filter = (node: HTMLElement) => {
+    // This is a workaround for a known issue with html-to-image and CORS.
+    // The library attempts to fetch and embed external resources like fonts,
+    // which can be blocked by the browser's security policies. This filter
+    // excludes nodes that are known to cause issues.
+    if (node.nodeName === 'LINK' && (node as HTMLLinkElement).rel === 'stylesheet' && (node as HTMLLinkElement).href.startsWith('https://fonts.googleapis.com')) {
+        return false;
+    }
+    // The emulator warning is an element injected by Firebase that we don't want in the image.
     const exclusionClasses = ['firebase-emulator-warning'];
     return !exclusionClasses.some((classname) => node.classList?.contains(classname));
 }
