@@ -12,6 +12,11 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter }
 import { useToast } from "@/hooks/use-toast";
 import { getSuggestion } from '@/app/actions';
 
+const filter = (node: HTMLElement) => {
+    // we need to filter out the google fonts stylesheet
+    return (node.tagName !== 'LINK') || !node.hasAttribute('href') || !node.getAttribute('href')!.startsWith('https://fonts.googleapis.com');
+}
+
 export function QRCodeGenerator() {
     const [qrValue, setQrValue] = useState('');
     const [label, setLabel] = useState('');
@@ -22,7 +27,7 @@ export function QRCodeGenerator() {
     const handleDownload = useCallback(async () => {
         if (!qrCodeRef.current) return;
         try {
-            const dataUrl = await toPng(qrCodeRef.current, { cacheBust: true, pixelRatio: 2 });
+            const dataUrl = await toPng(qrCodeRef.current, { cacheBust: true, pixelRatio: 2, filter });
             const link = document.createElement('a');
             link.download = `${label.trim().replace(/ /g, '_') || 'qrcode'}.png`;
             link.href = dataUrl;
