@@ -13,7 +13,6 @@ import { useToast } from "@/hooks/use-toast";
 import { getSuggestion } from '@/app/actions';
 
 const filter = (node: HTMLElement) => {
-    // we need to filter out the google fonts stylesheet
     return (node.tagName !== 'LINK') || !node.hasAttribute('href') || !node.getAttribute('href')!.startsWith('https://fonts.googleapis.com');
 }
 
