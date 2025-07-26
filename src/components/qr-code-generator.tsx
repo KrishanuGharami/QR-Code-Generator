@@ -27,7 +27,7 @@ export function QRCodeGenerator() {
     const handleDownload = useCallback(async () => {
         if (!qrCodeRef.current) return;
         try {
-            const dataUrl = await toPng(qrCodef.current, { cacheBust: true, pixelRatio: 2, filter });
+            const dataUrl = await toPng(qrCodeRef.current, { cacheBust: true, pixelRatio: 2, filter });
             const link = document.createElement('a');
             link.download = `${label.trim().replace(/ /g, '_') || 'qrcode'}.png`;
             link.href = dataUrl;
