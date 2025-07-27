@@ -3,7 +3,6 @@
 A modern, feature-rich QR code generator built with Next.js, ShadCN UI, and the power of AI. Create, customize, and share QR codes in seconds.
 
 ![QR Code Generator Screenshot](https://placehold.co/800x600.png?text=App+Screenshot+Here)
-*Replace the placeholder above with a screenshot of your application.*
 
 ---
 
