@@ -2,7 +2,7 @@
 
 A modern, feature-rich QR code generator built with Next.js, ShadCN UI, and the power of AI. Create, customize, and share QR codes in seconds.
 
-![QR Code Generator Screenshot](<img width="1866" height="908" alt="Screenshot 2025-07-27 165144" src="https://github.com/user-attachments/assets/8547a6cf-a8e5-442e-b7a2-d5b2f90def6e" />)
+![QR Code Generator Screenshot]("https://github.com/user-attachments/assets/8547a6cf-a8e5-442e-b7a2-d5b2f90def6e")
 
 
 ---
